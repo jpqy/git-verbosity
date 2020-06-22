@@ -27,7 +27,7 @@ async function getRandomRepos(user, limit = 10) {
   const shuffledRepos = shuffle(reposResponse.data);
   const repoNames = [];
   for (const repo of shuffledRepos)
-    if (repoNames.length < limit) {
+    if (repoNames.length < limit && repo.owner.login === user) {
       repoNames.push(repo.name);
     }
 
@@ -48,7 +48,7 @@ async function getAvgCommitMsgLengthOfRepo(user, repo) {
   console.log(commitMessages);
   const avgCommitMsgLength =
     commitMessages.reduce((acc, next) => acc + next, 0) / commitMessages.length;
-  return avgCommitMsgLength;
+  return avgCommitMsgLength || 0; // Handle when no commits were made by user
 }
 
 /**
@@ -58,6 +58,6 @@ async function getAvgCommitMsgLengthOfRepo(user, repo) {
  */
 export default async function getAvgCommitMsgLengthOfUser(user) {
   const repos = await getRandomRepos(user);
-  //console.log(repos);
+  console.log(repos[0]);
   return getAvgCommitMsgLengthOfRepo(user, repos[0]);
 }
