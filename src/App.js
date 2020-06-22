@@ -7,18 +7,21 @@ import getAvgCommitMsgLengthOfUser from "./helpers/getAvgCommitMsgLength";
 
 function App() {
   const [following, setFollowing] = useState([]);
-  const [repos, setRepos] = useState([]);
+  const [length, setLength] = useState([]);
   useEffect(() => {
-    const username = "jpqy";
-    getFollowing(username).then(following => setFollowing(following));
-    getAvgCommitMsgLengthOfUser(username).then(length => setRepos(length));
-    //getAvgCommitMsgLengthOfUser(username).then(repos => setRepos(repos));
+    const user = "jpqy";
+    getFollowing(user).then(following => {
+      setFollowing(following);
+      // const users = [...following, user];
+      // return following;
+    });
+    getAvgCommitMsgLengthOfUser(user).then(length => setLength(length));    
   }, []);
 
   return (
     <div className="App">
       <div>{following.join(", ")}</div>
-      <div>{repos}</div>
+      <div>{length}</div>
     </div>
   );
 }
