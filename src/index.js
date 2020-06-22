@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
 axios.defaults.baseURL = "https://api.github.com";
+axios.defaults.headers.common['Authorization'] = "Basic MTVmMmRlMDE4NGUwYzAxMjVmNWE6YTBiMmNjMzU2NDYwMTQ2MDc2M2RiYzJlNjNhMzVjYzk5MzJmYjY0Mg==";
 
 ReactDOM.render(
   <React.StrictMode>
