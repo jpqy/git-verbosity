@@ -5,7 +5,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 /* Chart code */
 // Themes begin
-export default function BarChart({ chartData }) {
+export default function BarChart({ chartData, user }) {
   useEffect(() => {
     am4core.useTheme(am4themes_animated);
     // Themes end
@@ -22,7 +22,7 @@ export default function BarChart({ chartData }) {
     chart.data = chartData;
 
     let title = chart.titles.create();
-    title.text = "Average length of commit messages";
+    title.text = `Average length of ${user}'s commit messages`;
     title.fontSize = 30;
 
     let categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());

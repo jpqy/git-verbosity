@@ -27,18 +27,24 @@ function App() {
   const [chartData, setChartData] = useState([]);
 
   const [searchTerm, setSearchTerm] = React.useState("");
-  const [query, setQuery] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const handleChange = event => {
     setSearchTerm(event.target.value);
   };
 
   const handleClick = event => {
-    setQuery(searchTerm);
+    setChartData([]);
+    setLoading(true);
+    getCommitMsgLengthDataForChart(searchTerm)
+      .then(data => {
+        setChartData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setChartData([]);
+        setLoading(false);
+      });
   };
-
-  useEffect(() => {
-    getCommitMsgLengthDataForChart(query).then(data => setChartData(data));
-  }, [query]);
 
   return (
     <div className="App">
@@ -62,8 +68,19 @@ function App() {
           Get verbosity
         </button>
       </div>
+      {loading && <h1>Loading...</h1>}
+      {loading && (
+        <div className="sk-chase">
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+        </div>
+      )}
       {/* <div>{chartData.map(data => JSON.stringify(data))}</div> */}
-      {chartData.length !== 0 && <BarChart chartData={chartData} />}
+      {chartData.length !== 0 && <BarChart chartData={chartData} user={searchTerm} />}
     </div>
   );
 }
