@@ -22,8 +22,8 @@ export default function BarChart({ chartData, user }) {
     chart.data = chartData;
 
     let title = chart.titles.create();
-    title.text = `Average length of ${user}'s commit messages`;
-    title.fontSize = 30;
+    title.text = `Average length (characters) of ${user} and friends' commit messages`;
+    title.fontSize = 20;
 
     let categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = "name";
