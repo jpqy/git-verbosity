@@ -7,7 +7,6 @@ import axios from "axios";
 export default async function getFollowing(user) {
   // Get first 9 users
   const followingArray = await axios.get(`/users/${user}/following`);
-  console.log(followingArray);
   const following = followingArray.data.slice(0, 9).map(user => user.login);
   return following;
 }
