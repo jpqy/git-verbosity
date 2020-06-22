@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "533050d7418ecce7889f0c8523b9ea48",
+    "revision": "9c50b51fee35aea3a2000dba47c5105a",
     "url": "/git-verbosity/index.html"
   },
   {
-    "revision": "5eff823461bf2312e456",
+    "revision": "765db969ad670523555b",
     "url": "/git-verbosity/static/css/main.ee4ecf98.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/git-verbosity/static/js/6.568b0a66.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5eff823461bf2312e456",
-    "url": "/git-verbosity/static/js/main.c6475c3e.chunk.js"
+    "revision": "765db969ad670523555b",
+    "url": "/git-verbosity/static/js/main.aee3f330.chunk.js"
   },
   {
     "revision": "91e069e2eff2038604da",
