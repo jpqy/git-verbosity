@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/git-verbosity/static/css/main.5f361e03.chunk.css",
+    "main.js": "/git-verbosity/static/js/main.239abcfb.chunk.js",
+    "main.js.map": "/git-verbosity/static/js/main.239abcfb.chunk.js.map",
+    "runtime-main.js": "/git-verbosity/static/js/runtime-main.ab126d82.js",
+    "runtime-main.js.map": "/git-verbosity/static/js/runtime-main.ab126d82.js.map",
+    "static/js/2.129b4763.chunk.js": "/git-verbosity/static/js/2.129b4763.chunk.js",
+    "static/js/2.129b4763.chunk.js.map": "/git-verbosity/static/js/2.129b4763.chunk.js.map",
+    "index.html": "/git-verbosity/index.html",
+    "precache-manifest.3b0b6272e52fa2473173d65c8942f155.js": "/git-verbosity/precache-manifest.3b0b6272e52fa2473173d65c8942f155.js",
+    "service-worker.js": "/git-verbosity/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/git-verbosity/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.129b4763.chunk.js.LICENSE.txt": "/git-verbosity/static/js/2.129b4763.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/git-verbosity/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ab126d82.js",
+    "static/js/2.129b4763.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.239abcfb.chunk.js"
+  ]
+}
