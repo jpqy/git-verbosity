@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+html,
+body,
+.App,
+#root {
+  height: 100%;
+}
+#chartdiv {
+  align-self: center;
+  width: 80%;
+  height: 50%;
+  padding-left: 6%;
+}

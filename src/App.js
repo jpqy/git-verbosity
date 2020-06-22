@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import getFollowing from "./helpers/getFollowing";
 import getAvgCommitMsgLengthOfUser from "./helpers/getAvgCommitMsgLength";
+import BarChart from "./BarChart";
 
 const getCommitMsgLengthDataForChart = async function (user = "jpqy") {
   const following = await getFollowing(user);
@@ -12,22 +13,26 @@ const getCommitMsgLengthDataForChart = async function (user = "jpqy") {
   );
   const lengths = await Promise.all(userLengthPromises);
 
-  const chartData = {};
+  const chartData = [];
   for (let i = 0; i < users.length; i++) {
-    chartData[users[i]] = lengths[i];
-  }  
+    chartData.push({
+      name: users[i],
+      length: Math.round(lengths[i] * 10) / 10,
+    });
+  }
   return chartData;
 };
 
 function App() {
-  const [chartData, setChartData] = useState({});
+  const [chartData, setChartData] = useState([]);
   useEffect(() => {
     getCommitMsgLengthDataForChart().then(data => setChartData(data));
   }, []);
 
   return (
     <div className="App">
-      <div>{JSON.stringify(chartData)}</div>
+      <div>{chartData.map(data => JSON.stringify(data))}</div>
+      {chartData.length !== 0 && <BarChart chartData={chartData} />}
     </div>
   );
 }
