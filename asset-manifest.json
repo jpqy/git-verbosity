@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/git-verbosity/static/css/main.8fe6136b.chunk.css",
-    "main.js": "/git-verbosity/static/js/main.e4df537c.chunk.js",
-    "main.js.map": "/git-verbosity/static/js/main.e4df537c.chunk.js.map",
+    "main.css": "/git-verbosity/static/css/main.ee4ecf98.chunk.css",
+    "main.js": "/git-verbosity/static/js/main.aee3f330.chunk.js",
+    "main.js.map": "/git-verbosity/static/js/main.aee3f330.chunk.js.map",
     "runtime-main.js": "/git-verbosity/static/js/runtime-main.1f48a450.js",
     "runtime-main.js.map": "/git-verbosity/static/js/runtime-main.1f48a450.js.map",
     "xlsx.js": "/git-verbosity/static/js/xlsx.199184e9.chunk.js",
@@ -16,9 +16,9 @@
     "static/js/6.568b0a66.chunk.js": "/git-verbosity/static/js/6.568b0a66.chunk.js",
     "static/js/6.568b0a66.chunk.js.map": "/git-verbosity/static/js/6.568b0a66.chunk.js.map",
     "index.html": "/git-verbosity/index.html",
-    "precache-manifest.ca876e959d77f7367a642bc2dcaaf23e.js": "/git-verbosity/precache-manifest.ca876e959d77f7367a642bc2dcaaf23e.js",
+    "precache-manifest.5ce79f4adcdd0838933614b71775a68f.js": "/git-verbosity/precache-manifest.5ce79f4adcdd0838933614b71775a68f.js",
     "service-worker.js": "/git-verbosity/service-worker.js",
-    "static/css/main.8fe6136b.chunk.css.map": "/git-verbosity/static/css/main.8fe6136b.chunk.css.map",
+    "static/css/main.ee4ecf98.chunk.css.map": "/git-verbosity/static/css/main.ee4ecf98.chunk.css.map",
     "static/js/4.cf1be40b.chunk.js.LICENSE.txt": "/git-verbosity/static/js/4.cf1be40b.chunk.js.LICENSE.txt",
     "static/js/5.0a1a34b3.chunk.js.LICENSE.txt": "/git-verbosity/static/js/5.0a1a34b3.chunk.js.LICENSE.txt",
     "static/js/6.568b0a66.chunk.js.LICENSE.txt": "/git-verbosity/static/js/6.568b0a66.chunk.js.LICENSE.txt"
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.1f48a450.js",
     "static/js/4.cf1be40b.chunk.js",
-    "static/css/main.8fe6136b.chunk.css",
-    "static/js/main.e4df537c.chunk.js"
+    "static/css/main.ee4ecf98.chunk.css",
+    "static/js/main.aee3f330.chunk.js"
   ]
 }
