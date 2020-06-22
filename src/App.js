@@ -6,20 +6,22 @@ import getAvgCommitMsgLengthOfUser from "./helpers/getAvgCommitMsgLength";
 import BarChart from "./BarChart";
 
 const getCommitMsgLengthDataForChart = async function (user) {
-  const following = await getFollowing(user);
-  const users = [...following, user];
+  const users = await getFollowing(user);
+  //const users = [...following, user];
   const userLengthPromises = users.map(user =>
-    getAvgCommitMsgLengthOfUser(user)
+    getAvgCommitMsgLengthOfUser(user.name)
   );
   const lengths = await Promise.all(userLengthPromises);
 
   const chartData = [];
   for (let i = 0; i < users.length; i++) {
     chartData.push({
-      name: users[i],
+      name: users[i].name,
+      href: users[i].href,
       length: Math.round(lengths[i] * 10) / 10,
     });
   }
+  console.log(chartData);
   return chartData;
 };
 
@@ -80,7 +82,9 @@ function App() {
         </div>
       )}
       {/* <div>{chartData.map(data => JSON.stringify(data))}</div> */}
-      {chartData.length !== 0 && <BarChart chartData={chartData} user={searchTerm} />}
+      {chartData.length !== 0 && (
+        <BarChart chartData={chartData} user={searchTerm} />
+      )}
     </div>
   );
 }
