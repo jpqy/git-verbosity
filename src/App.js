@@ -1,27 +1,33 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import getFollowing from "./helpers/getFollowing";
 import getAvgCommitMsgLengthOfUser from "./helpers/getAvgCommitMsgLength";
 
+const getCommitMsgLengthDataForChart = async function (user = "jpqy") {
+  const following = await getFollowing(user);
+  const users = [...following, user];
+  const userLengthPromises = users.map(user =>
+    getAvgCommitMsgLengthOfUser(user)
+  );
+  const lengths = await Promise.all(userLengthPromises);
+
+  const chartData = {};
+  for (let i = 0; i < users.length; i++) {
+    chartData[users[i]] = lengths[i];
+  }  
+  return chartData;
+};
+
 function App() {
-  const [following, setFollowing] = useState([]);
-  const [length, setLength] = useState([]);
+  const [chartData, setChartData] = useState({});
   useEffect(() => {
-    const user = "jpqy";
-    getFollowing(user).then(following => {
-      setFollowing(following);
-      // const users = [...following, user];
-      // return following;
-    });
-    getAvgCommitMsgLengthOfUser(user).then(length => setLength(length));    
+    getCommitMsgLengthDataForChart().then(data => setChartData(data));
   }, []);
 
   return (
     <div className="App">
-      <div>{following.join(", ")}</div>
-      <div>{length}</div>
+      <div>{JSON.stringify(chartData)}</div>
     </div>
   );
 }
