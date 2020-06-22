@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "33ec257e54374f692be6f9fb0d7ac799",
+    "revision": "9d55e8aff7fe837182f05163a7027cba",
     "url": "/git-verbosity/index.html"
   },
   {
