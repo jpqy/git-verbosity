@@ -5,7 +5,7 @@ import getFollowing from "./helpers/getFollowing";
 import getAvgCommitMsgLengthOfUser from "./helpers/getAvgCommitMsgLength";
 import BarChart from "./BarChart";
 
-const getCommitMsgLengthDataForChart = async function (user = "jpqy") {
+const getCommitMsgLengthDataForChart = async function (user) {
   const following = await getFollowing(user);
   const users = [...following, user];
   const userLengthPromises = users.map(user =>
@@ -25,13 +25,44 @@ const getCommitMsgLengthDataForChart = async function (user = "jpqy") {
 
 function App() {
   const [chartData, setChartData] = useState([]);
+
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [query, setQuery] = React.useState("");
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleClick = event => {
+    setQuery(searchTerm);
+  };
+
   useEffect(() => {
-    getCommitMsgLengthDataForChart().then(data => setChartData(data));
-  }, []);
+    getCommitMsgLengthDataForChart(query).then(data => setChartData(data));
+  }, [query]);
 
   return (
     <div className="App">
-      <div>{chartData.map(data => JSON.stringify(data))}</div>
+      <div id="w">
+        <h1>Git Verbosity</h1>
+        <p>
+          Enter a Github username below to find out the average commit message
+          length of the user and their friends!
+        </p>
+
+        <input
+          type="text"
+          name="ghusername"
+          id="ghusername"
+          placeholder="Github username..."
+          value={searchTerm}
+          onChange={handleChange}
+        />
+
+        <button href="#" id="ghsubmitbtn" onClick={handleClick}>
+          Get verbosity
+        </button>
+      </div>
+      {/* <div>{chartData.map(data => JSON.stringify(data))}</div> */}
       {chartData.length !== 0 && <BarChart chartData={chartData} />}
     </div>
   );
