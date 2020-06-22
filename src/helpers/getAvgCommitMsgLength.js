@@ -20,7 +20,7 @@ function shuffle(a) {
  * @param {*} user
  * @param {*} limit
  */
-async function getRandomRepos(user, limit = 5) {
+async function getRandomRepos(user, limit = 10) {
   const reposResponse = await axios.get(`/users/${user}/repos`);
 
   // Randomly select up to 10 repos for sampling
