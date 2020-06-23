@@ -35,6 +35,7 @@ function App() {
   };
 
   const handleClick = event => {
+    event.preventDefault();
     setChartData([]);
     setLoading(true);
     getCommitMsgLengthDataForChart(searchTerm)
@@ -56,19 +57,20 @@ function App() {
           Enter a Github username below to find out the average commit message
           length of the user and their friends!
         </p>
+        <form>
+          <input
+            type="text"
+            name="ghusername"
+            id="ghusername"
+            placeholder="Github username..."
+            value={searchTerm}
+            onChange={handleChange}
+          />
 
-        <input
-          type="text"
-          name="ghusername"
-          id="ghusername"
-          placeholder="Github username..."
-          value={searchTerm}
-          onChange={handleChange}
-        />
-
-        <button href="#" id="ghsubmitbtn" onClick={handleClick}>
-          Get verbosity
-        </button>
+          <button id="ghsubmitbtn" onClick={handleClick} type="submit">
+            Get verbosity
+          </button>
+        </form>
       </div>
       {loading && <h1>Loading...</h1>}
       {loading && (
