@@ -21,7 +21,7 @@ const getCommitMsgLengthDataForChart = async function (user) {
       length: Math.round(lengths[i] * 10) / 10,
     });
   }
-  console.log(chartData);
+  // console.log(chartData);
   return chartData;
 };
 

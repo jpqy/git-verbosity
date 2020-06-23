@@ -1,4 +1,5 @@
 import axios from "axios";
+import shuffle from "./shuffle";
 
 /**
  * Returns an array of 9 usernames that the user is following on github
@@ -6,13 +7,13 @@ import axios from "axios";
  * @param {*} user
  */
 export default async function getFollowing(user, limit = 5) {
-  // Get first 9 users
+  // Get first 4 users
   const followingArray = await axios.get(`/users/${user}/following`);
-  const following = followingArray.data
+  const following = shuffle(followingArray.data)
     .slice(0, limit - 1)
     .map(user => ({ name: user.login, href: user.avatar_url }));
   const userInfo = await axios.get(`/users/${user}`);
   following.push({ name: userInfo.data.login, href: userInfo.data.avatar_url });
-  console.log(following);
+  // console.log(following);
   return following;
 }
