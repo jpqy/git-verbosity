@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/git-verbosity/precache-manifest.52f3b6a6c9c0f93adc00116055ae4ed0.js"
+  "/git-verbosity/precache-manifest.a4c713b321394d47dfe4fd730981f861.js"
 );
 
 self.addEventListener('message', (event) => {
