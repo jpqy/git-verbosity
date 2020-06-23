@@ -65,6 +65,7 @@ function App() {
             placeholder="Github username..."
             value={searchTerm}
             onChange={handleChange}
+            autoFocus
           />
 
           <button id="ghsubmitbtn" onClick={handleClick} type="submit">
