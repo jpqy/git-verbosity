@@ -1,26 +1,12 @@
 import axios from "axios";
-
-/**
- * Shuffles array in place.
- * @param {Array} a items An array containing the items.
- */
-function shuffle(a) {
-  var j, x, i;
-  for (i = a.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
-    x = a[i];
-    a[i] = a[j];
-    a[j] = x;
-  }
-  return a;
-}
+import shuffle from "./shuffle";
 
 /**
  * Returns an array of random `limit` repo names of the user
  * @param {*} user
  * @param {*} limit
  */
-async function getRandomRepos(user, limit = 5) {
+async function getRandomRepos(user, limit = 10) {
   const reposResponse = await axios.get(`/users/${user}/repos`);
 
   // Randomly select up to 10 repos for sampling
@@ -40,15 +26,21 @@ async function getRandomRepos(user, limit = 5) {
  * @param {*} repo
  */
 async function getAvgCommitMsgLengthByRepo(user, repo) {
-  const commitsResponse = await axios.get(`/repos/${user}/${repo}/commits`);
-  //console.log(commitsResponse);
-  const commitMessages = commitsResponse.data
-    .filter(commitObj => commitObj.author && commitObj.author.login === user)
-    .map(commitObj => commitObj.commit.message.length);
-  //console.log(commitMessages);
-  const avgCommitMsgLength =
-    commitMessages.reduce((acc, next) => acc + next, 0) / commitMessages.length;
-  return avgCommitMsgLength || 0; // Handle when no commits were made by user
+  try {
+    const commitsResponse = await axios.get(`/repos/${user}/${repo}/commits`);
+    //console.log(commitsResponse.status);
+    const commitMessages = commitsResponse.data
+      .filter(commitObj => commitObj.author && commitObj.author.login === user)
+      .map(commitObj => commitObj.commit.message.length);
+    //console.log(commitMessages);
+    const avgCommitMsgLength =
+      commitMessages.reduce((acc, next) => acc + next, 0) /
+      commitMessages.length;
+    return avgCommitMsgLength || 0; // Handle when no commits were made by user
+  } catch (error) {
+    // 409 error, empty repo likely
+    return 0;
+  }
 }
 
 /**
