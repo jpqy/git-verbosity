@@ -6,7 +6,7 @@ We all know that writing detailed commit messages are important. This app allows
 ## About the project
 This project was created in under 5 hours as part of Mintbean's Careerhack Hackathon. The goal was to build something that uses GitHub's API.
 
-[LinkedIn Post](https://www.linkedin.com/posts/jpqy_mintbean-careerhack-hackathon-git-verbosity-activity-6680959517867433984-gDCu)
+[LinkedIn Post](https://www.linkedin.com/posts/jimmypeng-_mintbean-careerhack-hackathon-git-verbosity-activity-6680959517867433984-CTwA)
 
 ## Technical challenges
 * The app first makes a call to the `/users/.../followers` API endpoint to retrieve a list of people the user is following
